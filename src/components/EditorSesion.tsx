@@ -318,7 +318,7 @@ function AgregarEjercicio({ onAgregar }: { onAgregar: (nombre: string) => boolea
   const [error, setError] = useState("");
   return (
     <form
-      className="cristal-leve grid gap-2 rounded-[22px] p-4"
+      className="cristal-leve grid grid-cols-1 gap-2 rounded-[22px] p-4"
       onSubmit={(e) => {
         e.preventDefault();
         if (!nombre.trim()) return;

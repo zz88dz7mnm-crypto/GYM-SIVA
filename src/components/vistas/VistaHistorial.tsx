@@ -52,7 +52,7 @@ export function VistaHistorial() {
               <h2 className="mb-2 px-1 text-[13px] font-semibold tracking-wide text-tinta-suave uppercase">
                 {lunes === lunesDe(hoy) ? "Esta semana" : `Semana del ${fechaCorta(lunes, hoy)}`}
               </h2>
-              <div className="grid gap-3">
+              <div className="grid grid-cols-1 gap-3">
                 {lista.map((s) => (
                   <FilaSesion key={s.id} sesion={s} abierta={abierta === s.id} onAlternar={() => setAbierta((a) => (a === s.id ? null : s.id))} />
                 ))}
@@ -117,10 +117,10 @@ function DetalleSesion({ sesion }: { sesion: Sesion }) {
   }
 
   return (
-    <div className="grid gap-4 pt-4">
-      <Tarjeta className="grid gap-3">
+    <div className="grid grid-cols-1 gap-4 pt-4">
+      <Tarjeta className="grid grid-cols-1 gap-3">
         <p className="text-[14px] text-tinta-suave">Corregí lo que haga falta: cada cambio se guarda solo y queda registrado.</p>
-        <label className="grid gap-1 text-[13px] text-tinta-suave">
+        <label className="grid grid-cols-1 gap-1 text-[13px] text-tinta-suave">
           Fecha
           <input
             type="date"
@@ -130,7 +130,7 @@ function DetalleSesion({ sesion }: { sesion: Sesion }) {
             className="h-11 rounded-xl border border-linea bg-campo px-3 text-[16px] text-tinta"
           />
         </label>
-        <label className="grid gap-1 text-[13px] text-tinta-suave">
+        <label className="grid grid-cols-1 gap-1 text-[13px] text-tinta-suave">
           Notas
           <textarea
             value={notas}

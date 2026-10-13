@@ -67,7 +67,9 @@ export function GraficoLinea({ puntos, formato, nombre, alto = 200 }: { puntos: 
   const y = (v: number) => ARRIBA + altoUtil - ((v - yMin) / (yMax - yMin || 1)) * altoUtil;
   const linea = puntos.map((p, i) => `${i ? "L" : "M"}${x(i).toFixed(1)},${y(p.valor).toFixed(1)}`).join(" ");
   const area = puntos.length > 1 ? `${linea} L${x(puntos.length - 1).toFixed(1)},${ARRIBA + altoUtil} L${x(0).toFixed(1)},${ARRIBA + altoUtil} Z` : "";
-  const etiquetasX = puntos.length <= 2 ? puntos.map((_, i) => i) : [0, Math.floor((puntos.length - 1) / 2), puntos.length - 1];
+  // En gráficos angostos, solo la primera y la última fecha: tres no entran sin pisarse.
+  const etiquetasX =
+    puntos.length <= 2 ? puntos.map((_, i) => i) : anchoUtil < 260 ? [0, puntos.length - 1] : [0, Math.floor((puntos.length - 1) / 2), puntos.length - 1];
 
   function mover(e: React.PointerEvent<SVGSVGElement>) {
     const caja = e.currentTarget.getBoundingClientRect();

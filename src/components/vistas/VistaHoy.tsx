@@ -54,7 +54,7 @@ function EstadoDelPlan() {
         <h2 className="text-[17px] font-bold">¿Cuándo arrancás el plan de 12 semanas?</h2>
         <p className="mt-1 text-[15px] text-tinta-suave">Con la fecha de inicio te digo en qué semana y fase estás. La semana va de lunes a domingo.</p>
         <div className="mt-4 flex flex-wrap items-end gap-3">
-          <label className="grid gap-1 text-[13px] text-tinta-suave">
+          <label className="grid grid-cols-1 gap-1 text-[13px] text-tinta-suave">
             Semana 1 empieza el
             <input
               type="date"

@@ -35,7 +35,7 @@ export function Ingreso() {
         <p className="mt-2 text-[17px] leading-snug text-tinta-suave">Tu plan, tus pesos y tu progreso. Entrá con la misma cuenta de FIA.</p>
 
         <form onSubmit={entrar} className="mt-7 grid gap-3">
-          <label className="grid gap-1.5 text-[13px] text-tinta-suave">
+          <label className="grid grid-cols-1 gap-1.5 text-[13px] text-tinta-suave">
             Email
             <input
               type="email"
@@ -47,7 +47,7 @@ export function Ingreso() {
               className={CAMPO}
             />
           </label>
-          <label className="grid gap-1.5 text-[13px] text-tinta-suave">
+          <label className="grid grid-cols-1 gap-1.5 text-[13px] text-tinta-suave">
             Contraseña
             <input type="password" required autoComplete="current-password" value={clave} onChange={(e) => setClave(e.target.value)} className={CAMPO} />
           </label>

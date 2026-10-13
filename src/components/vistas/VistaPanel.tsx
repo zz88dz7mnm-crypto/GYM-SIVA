@@ -23,7 +23,8 @@ export function VistaPanel() {
   const fase = semanaPlan ? faseDeSemana(semanaPlan) : null;
   const completadas = sesiones.filter((s) => s.estado === "completada");
   const ultima = completadas[0];
-  const variacion = anterior.volumen > 0 ? Math.round(((actual.volumen - anterior.volumen) / anterior.volumen) * 100) : null;
+  // Sin entrenar todavía esta semana, comparar daría un -100% que no dice nada.
+  const variacion = anterior.volumen > 0 && actual.sesiones > 0 ? Math.round(((actual.volumen - anterior.volumen) / anterior.volumen) * 100) : null;
 
   return (
     <>
@@ -50,7 +51,11 @@ export function VistaPanel() {
               valor={formatoVolumen(actual.volumen)}
               detalle={
                 variacion === null ? (
-                  "sin semana anterior para comparar"
+                  actual.sesiones === 0 ? (
+                    "todavía sin entrenar esta semana"
+                  ) : (
+                    "sin semana anterior para comparar"
+                  )
                 ) : (
                   <span className={cx(variacion > 0 ? "text-verde" : variacion < 0 ? "text-rojo" : "")}>
                     {variacion > 0 ? "▲ +" : variacion < 0 ? "▼ " : ""}

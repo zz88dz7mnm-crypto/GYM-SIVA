@@ -100,10 +100,10 @@ function Ajustes() {
   const [fecha, setFecha] = useState(ajustes.inicioPlan ?? lunesDe(hoy));
 
   return (
-    <Tarjeta className="grid gap-5">
+    <Tarjeta className="grid grid-cols-1 gap-5">
       <h2 className="text-[17px] font-bold">Ajustes</h2>
 
-      <div className="grid gap-2">
+      <div className="grid grid-cols-1 gap-2">
         <p className="text-[15px] font-semibold">Inicio del plan</p>
         <p className="text-[14px] text-tinta-suave">
           {ajustes.inicioPlan ? `La semana 1 empezó el lunes ${fechaCorta(ajustes.inicioPlan, hoy)}.` : "Todavía no elegiste cuándo arranca."} Para arrancar
@@ -128,7 +128,7 @@ function Ajustes() {
         </div>
       </div>
 
-      <div className="grid gap-2">
+      <div className="grid grid-cols-1 gap-2">
         <p className="text-[15px] font-semibold">Tema</p>
         <Segmentos<Preferencia>
           etiqueta="Tema"

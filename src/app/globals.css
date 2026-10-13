@@ -8,13 +8,13 @@
   --color-fondo: #f2f3f7;
   --color-tinta: #1d1d1f;
   --color-tinta-suave: #5f5f66;
-  --color-tinta-tenue: #7c7c84;
+  --color-tinta-tenue: #6a6a72;
   --color-linea: rgb(60 60 67 / 0.14);
   --color-acento: #c2410c;
   --color-acento-oscuro: #9a3412;
   --color-sobre-acento: #ffffff;
   --color-acento-suave: rgb(194 65 12 / 0.1);
-  --color-verde: #14804a;
+  --color-verde: #117a45;
   --color-rojo: #c62a22;
   --color-campo: rgb(255 255 255 / 0.85);
   --color-grafico: #c2410c;
@@ -71,10 +71,16 @@
 }
 
 @keyframes entrar {
-  from { opacity: 0; transform: translateY(8px); }
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
 }
 @keyframes aparecer {
-  from { opacity: 0; transform: translateY(10px) scale(0.98); }
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
 }
 
 html,
@@ -97,10 +103,8 @@ body::before {
   inset: 0;
   z-index: -1;
   background:
-    linear-gradient(to bottom, var(--color-fondo), transparent 9rem),
-    radial-gradient(52rem 34rem at 6% 12%, var(--luz-1), transparent 62%),
-    radial-gradient(44rem 30rem at 104% 24%, var(--luz-2), transparent 60%),
-    radial-gradient(56rem 38rem at 62% 112%, var(--luz-3), transparent 62%),
+    linear-gradient(to bottom, var(--color-fondo), transparent 9rem), radial-gradient(52rem 34rem at 6% 12%, var(--luz-1), transparent 62%),
+    radial-gradient(44rem 30rem at 104% 24%, var(--luz-2), transparent 60%), radial-gradient(56rem 38rem at 62% 112%, var(--luz-3), transparent 62%),
     var(--color-fondo);
 }
 
@@ -140,7 +144,9 @@ body::before {
 }
 
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-  .cristal { background: var(--color-fondo); }
+  .cristal {
+    background: var(--color-fondo);
+  }
 }
 @media (prefers-reduced-transparency: reduce) {
   .cristal,
